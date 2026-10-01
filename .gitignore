@@ -1,0 +1,12 @@
+# Virtual environment
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# DVC cache
+.dvc/cache/
+
+# TensorFlow model files handled by DVC
+*.h5
