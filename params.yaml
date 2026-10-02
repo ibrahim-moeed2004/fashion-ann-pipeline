@@ -3,6 +3,7 @@ preprocess:
   seed: 42
 
 train:
+  seed: 42
   dense_units: 128
   dropout_rate: 0.3
   learning_rate: 0.001

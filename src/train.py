@@ -2,11 +2,11 @@ from pathlib import Path
 import csv
 
 import numpy as np
+import tensorflow as tf
 import yaml
 from tensorflow.keras import Sequential
 from tensorflow.keras.layers import Flatten, Dense, Dropout
 from tensorflow.keras.optimizers import Adam
-
 
 # Paths
 PROCESSED_DIR = Path("data/processed")
@@ -21,11 +21,16 @@ def main():
 
     train_params = params["train"]
 
+    seed = train_params["seed"]
     dense_units = train_params["dense_units"]
     dropout_rate = train_params["dropout_rate"]
     learning_rate = train_params["learning_rate"]
     epochs = train_params["epochs"]
     batch_size = train_params["batch_size"]
+
+    # Set reproducibility
+    tf.keras.utils.set_random_seed(seed)
+    tf.config.experimental.enable_op_determinism()
 
     # Load processed data
     x_train = np.load(PROCESSED_DIR / "x_train.npy")
