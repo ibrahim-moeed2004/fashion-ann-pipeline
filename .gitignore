@@ -8,6 +8,10 @@ __pycache__/
 # DVC cache
 .dvc/cache/
 
+# DVC-managed artifacts
+data/raw/
+data/processed/
+models/
+
 # TensorFlow model files handled by DVC
 *.h5
-/models
