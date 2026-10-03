@@ -25,11 +25,10 @@ def main():
     x_test = np.load(RAW_DIR / "x_test.npy")
     y_test = np.load(RAW_DIR / "y_test.npy")
 
-    # Normalize images
-    x_train = (x_train.astype("float32") / 255.0) - 0.5
-    x_test = (x_test.astype("float32") / 255.0) - 0.5
-
-
+    # Normalize images to [0, 1] as the final reconciled approach
+    x_train = x_train.astype("float32") / 255.0
+    x_test = x_test.astype("float32") / 255.0
+    
     # Create training and validation sets
     x_train, x_val, y_train, y_val = train_test_split(
         x_train,
